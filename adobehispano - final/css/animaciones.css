@@ -1,0 +1,512 @@
+/* 
+
+    07 - Animación Transformaciones y Transiciones en CSS3 (Video2Brain) - Todos los videos estan en carpeta: videos - Desde el nº ES_523_01_01 hasta ES_523_05_01. Tambien puede ejecutarse la aplicacion "start" que esta dentro de la carpeta principal, se abrira el programa del cual podremos ver el contenido tambien.
+
+Videos/Temas contenidos del Dashboard: 
+       
+-En este practico consta de la explicacion del archivo CSS3 con propiedades Transform/Translate y Animation, aplicadas a los documentos HTML que conforman el archivo total. Basicamente se trata de una pagina de un evento llamado "Adobe Hispano" en donde da informacion sobre el mismo indicando cada Conferencista y los lenguajes que contiene, pero esto es secundario ya que se utiliza basicamente para explicar como indicamos, propiedades CSS.
+
+ACLARACIONES: 
+
+ */
+ 
+@charset "UTF-8";
+
+
+#mariana:hover, #mariana:focus  {
+	/* Realizaremos ejemplos de transform/rotate, aplicando las plantillas para cada navegador para ejemplificar. Este efecto realiza una rotacion de un elemento. Ej: transform:rotate(gradosº); .
+	
+	-webkit-transform:rotate(45deg); //Chrome - Safari - Konqueror
+	-moz-transform:rotate(45deg); //Mozilla-Firefox
+	-o-transform:rotate(45deg); //Opera
+	-ms-transform:rotate(45deg); //Internet Explorer 9 y superior
+	transform:rotate(45deg);
+	
+	Tambien puede expresarse mediante la medida "turn":
+
+		transform:rotate(0.12turn); -Esto equivaldria tambien a expresar 45deg. */
+
+
+
+	/* Realizaremos ejemplos de transform/translate, aplicando las plantillas para cada navegador para ejemplificar. Este efecto realiza el dezplazamiento de elementos en sentido horizontal o vertical; Ej: transform:translate(x,y); .
+	
+	-webkit-transform:translate(200px, -100px);
+	-moz-transform:translate(200px, -100px);
+	-o-transform:translate(200px, -100px);
+	-ms-transform:translate(200px, -100px);
+	transform:translate(200px, -100px);*/
+
+	/* Realizaremos ejemplos de transform/scale, aplicando las plantillas para cada navegador para ejemplificar. Este efecto realiza un cambio en la escala o tamaño del elemento, tanto en el eje x/y o por separado; Ej: transform:scale(x,y) - transform:scaleX(valor); - transform:scaleY(valor); . Tambien podemos poner un valor sin parametrar, dentro de los () por ejemplo (2), y cambiaria en ambos ejes el tamaño equivalentemente.
+	
+	-webkit-transform:scale(4);
+	-moz-transform:scale(4);
+	-o-transform:scale(4);
+	-ms-transform:scale(4);
+	transform:scale(4);*/
+
+
+
+	/* Realizaremos ejemplos de transform/skew, aplicando las plantillas para cada navegador para ejemplificar. Este efecto realiza un cambio en los grados del elemento, tanto en el eje x/y; Ej: transform:skew(x,y) - transform:skewX(valor); - transform:skewY(valor);. Si ponemos para ambos ejes el mismo valor, el elemento no se podra vizualizar al igual que si le damos 90º a alguno de los ejes.
+	
+	-webkit-transform:skewY(70deg);
+	-moz-transform:skewY(70deg);
+	-o-transform:skewY(70deg);
+	-ms-transform:skewY(70deg);
+	transform:skewY(70deg);*/
+
+
+
+	/* Explicaremos también otra funcion dentro de transform que es "origin" y sirve para cambiar el origen inicial o punto de pocision del elemento inicial en x/y. Para ello podemos especificar los siguientes paramentros: left, rigth, top, buttom y center; asi como tambien numerica "pixeles". Ej con platilla Chrome:-webkit-transform-origin:rigth bottom; .  
+	
+	-------------------------------------------------------------------------------------*/
+
+	/* -Multiples Transformaciones: Para aplicar mas de una transformacion a la vez y se apliquen todas a un elemento es necesario escribirlo correctamente, con la siguiente estructura: transform:funcion1(valor) funcion2(valor) funcion3(valor); ...etc. Ej:
+
+		-webkit-transform:rotate(45deg) translate(200px, -100px) skewY(45deg);
+
+	-Ya que si la escribimos una debajo de la otra, tomara la ultima creada unicamente, que sera la translate. Ej:
+
+		transform:rotate(valor);
+		transform:translate(valor);
+
+	-------------------------------------------------------------------------------------
+	*/
+
+	/* -Transformaciones interactivas: Estas son transformaciones que se ejecutan cuando el Usuario interactua con el elemento; estas son el preudo selector: (:hover y el :focus).
+	-HOVER: Permite realizar transformaciones al tocar el elemento mediante el puntero del mouse, puniendo en funcionamiento una especie de evento.
+	-FOCUS: Similar, pero aplica compatibilidad a dispositivos tactiles, ya que la interaccion es digitada.
+
+	-Aplicado lo explicado veremos al comienzo del archivo que nuestro cada ID #mariana tiene ambos eventos concatenados mediante coma; Ej: #mariana:hover, #mariana:focus {}
+
+	-------------------------------------------------------------------------------------
+	*/
+
+	
+}
+
+/*#mariana {  
+
+	-Transiciones CSS: Pertenecen a otro modulo de CSS3 y sirven para aplicar cambios en los valores de las propiedades css, las cuales ocurren de forma suave o acelerada, sobre un tiempo o duration que especificamos para que suceda. Esta duracion no puede ser 0 ya que se ejecutara tan rapido que no se verá, es el valor que viene por defecto asique si o si hay que especificarlo, o ni un valor negativo.
+		- Ademas puede aplicarse aceleraciones al ejecutarse (transition-timing-function) y delay (transition-delay) es la "demora inicial" que tendra en ejecutarse. Explicaremos posteriormente ambas propiedades.
+
+	Sintaxis:
+
+		-Propiedad:(all, transform)
+					transition-property: propiedad "A la que se va aplicar" Ej: -webkit-transition-property: -webkit-transform;
+		-Duración:(s,ms)
+					transition-duration: 3000ms;
+
+	-Aclaracion IMPORTANTE: Aplicando estas propiedades recomendamos que si las definimos todas dentro de el ID #mariana: hover pasará que realizara todas las transformaciones que le asignemos, al pasar el mouse con el la duracion indicada pero al quitar el mouse quitará bruscamente esas propiedades del elemento por no estar definidas. Para que aplique los cambios tanto al pasar el mouse como asi sacándolo se recomienda poner todos las "transformaciones" en el :hover y las "transiciones" en el ID a secas, sin evento asignado, Ej: #mariana {}, quedando:
+
+				#mariana
+				{
+					-webkit-transition-property: -webkit-transform;
+				}
+
+				#mariana:hover
+				{
+					-webkit-transform:rotate(180deg);
+				}
+	-------------------------------------------------------------------------------------
+
+	-Aceleraciones: Permite darle una velocidad de ejecucion a la transicion, "ease, valor por defecto" para darle ese efecto organico de movimiento, pero tambien podemos nosotros modificar esos valores. Podemos usar las siguientes sentencias:
+
+				ease: (default) lento-acelera-desacelera
+				linear: constante
+				ease-in: lento-acelera
+				ease-out: rápido-desacelera
+				ease-in-out: lento-acelera y linear-desacelera
+				steps: etapas (*)
+
+	(*)-Estas etapas pueden definirse con otras sentencias con + comportamientos de timing que pueden encontrarse en la web, con graficos/curvas de movimiento explicativas. Ej: easings.net/es o cubic-bezier.com.
+
+	-Además podemos establecer la sentencia "cubic-bezier" que sirve para poder especificar las coordenadas de ambos puntos de los cuales sera trazada la curvas bezier. Permite editar una curva que sera el tiempo que el efecto personalizado realizará. En la pagina es posible personalizarlo y ademas debajo podremos ver el codigo generado de forma práctica para copiar/pegar en nuestro archivo.
+
+	-------------------------------------------------------------------------------------
+
+	-Delay "Demora": Permite definir un tiempo de inicio de una transicion como dijimos. 
+	Ej: 	
+				-webkit-transition-delay: 2000ms;
+
+	-------------------------------------------------------------------------------------
+
+	Aplicamos todo lo explicado en las lineas siguientes, especificando todas las compatibilidades:
+
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 3000ms;
+	-webkit-transition-timing-function: cubic-bezier(1.000, -0.415, 0.000, 1.650);
+	-webkit-transition-delay: 2000ms;
+	
+	-moz-transition-property: -moz-transform;
+	-moz-transition-duration: 3000ms;
+	-moz-transition-timing-function: cubic-bezier(1.000, -0.415, 0.000, 1.650);
+	-moz-transition-delay: 2000ms;
+	
+	-o-transition-property: -o-transform;
+	-o-transition-duration: 3000ms;
+	-o-transition-timing-function: cubic-bezier(1.000, -0.415, 0.000, 1.650);
+	-o-transition-delay: 2000ms;
+	
+	-ms-transition-property: -ms-transform;
+	-ms-transition-duration: 3000ms;
+	-ms-transition-timing-function: cubic-bezier(1.000, -0.415, 0.000, 1.650);
+	-ms-transition-delay: 2000ms;
+	
+	transition-property: transform;
+	transition-duration: 3000ms;
+	transition-timing-function: cubic-bezier(1.000, -0.415, 0.000, 1.650);
+	transition-delay: 2000ms;
+}*/
+
+/* 
+	Shorthand notation: Esta definicion "Notación acortada" es una forma de escribir el codigo de forma simplificada, ya que al crear plantillas css para dar compatibilidades para los difrentes navegadores hace que nuestro codigo quede extenso por demás. Ej (para Chrome):
+
+Version extensa del bloque:
+
+		-webkit-transition-property: -webkit-transform;
+		-webkit-transition-duration: 3000ms;
+		-webkit-transition-timing-function: cubic-bezier(1.000, -0.415, 0.000, 1.650);
+		-webkit-transition-delay: 2000ms;
+
+Version acortada del bloque:
+	- Indicamos la transicion + duracion + transformacion + timing + delay.
+
+		-webkit-transition: 3s -webkit-transform cubic-bezier(1.000, -0.415, 0.000, 1.650) 2s;
+	
+	Por último, le damos ahora la compatibilidad a este bloque acortado para cada navegador. Ej:
+
+		-webkit-transition: 3s -webkit-transform cubic-bezier(1.000, -0.415, 0.000, 1.650) 2s;
+		-moz-transition: 3s -moz-transform cubic-bezier(1.000, -0.415, 0.000, 1.650) 2s;
+		-o-transition: 3s -o-transform cubic-bezier(1.000, -0.415, 0.000, 1.650) 2s;
+		-ms-transition: 3s -ms-transform cubic-bezier(1.000, -0.415, 0.000, 1.650) 2s;
+		 transition: 3s transform cubic-bezier(1.000, -0.415, 0.000, 1.650) 2s;
+*/
+
+#mariana {
+	-webkit-transition: 2s -webkit-transform steps(3) 500ms;
+	-moz-transition: 2s -moz-transform steps(3) 500ms;
+	-o-transition: 2s -o-transform steps(3) 500ms;
+	-ms-transition: 2s -ms-transform steps(3) 500ms;
+	transition: 2s transform steps(3) 500ms;
+}
+
+#mariana:hover {
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	transform:rotate(180deg);
+}
+
+
+/* CAMBIO EN EL COLOR Y TRANSICION
+
+Sobre esta clase ".cursosMini" y a su :hover; explicaremos como se realiza el cambio de color/tamaño/animaciones de los elementos contenidos en el div de esa clase.
+
+
+
+*/
+.cursosMini { 
+
+	cursor: pointer; /*Esta linea muestra la "manito" cuando nos posicionamos en ese sector de codigo.*/
+
+	-webkit-transition: 1s all ease-in-out;
+	-moz-transition: 1s all ease-in-out;
+	-o-transition: 1s all ease-in-out;
+	-ms-transition: 1s all ease-in-out;
+	transition: 1s all ease-in-out;
+}
+
+.cursosMini:hover {
+	background-color: #FC0;
+
+	/*
+	De la siguiente manera cambiaremos el tamaño de los elementos del div mediante scale. Pero si no queremos ese efecto sino mas bien mantener la misma estructura del div y solo modificar/amplificar el contenido que serian las letras dentro de del, escribimos el tamaño de la fuente a cambiar. De esta manera se va a escalar de forma vertical para darle cabida al contenido con el nuevo valor de la fuente.
+
+	Podremos verificar que este cambio de tamaño de fuente tiene un cierto "salto" que se aprecia y no queda tan bien, por lo que podremos optar por la 1er o 2da tecnica, analizando cual quede mejor.
+
+		font-size: 2em;
+
+	*/
+
+/*	-webkit-transform:scale(1.2,1.2); PRIMERA TECNICA
+	-moz-transform:scale(1.2,1.2);
+	-o-transform:scale(1.2,1.2);
+	-ms-transform:scale(1.2,1.2);
+	transform:scale(1.2,1.2);*/
+
+	font-size: 2em; /*SEGUNDA TECNICA*/
+}
+
+/* CAMBIO DE OPACIDAD DE UN ELEMENTO Y TRANSICION/TRANSFORMACION
+
+-Utilizando "opacity" podremos cambiar la opaciodad del elemento. Podemos ver como al pasar el mouse por efecto del hover la imagen/foto se normaliza pero cuando no lo esta este se vuelve mas opaco. Ej:
+
+Sentencia: -webkit-opacity: .6;
+
+-Aclaracion: Ademas se aplica un aumento de tamaño de la imagen (transform) y una transicion para que se aplique. Pero podremos ver que cuando sucede la imagen seleccionada tapa una porcion de las otras fotos que quedan por debajo. Esto se soluciona mediante la sentencia "z-index". Lo que realiza es establecer un ordenamiento en la visualizacion de cada elemento, como cada foto puede tapar como maximo a 5 fotos dada la estructura de nuestra pagina, podremos el z-index maximo que sera de 5.
+
+
+
+*/
+
+/*.conferencista {
+	cursor: pointer;
+	-webkit-opacity: .6; 
+	-webkit-transition: 0.5s all ease-in-out;
+}
+
+.conferencista:hover {
+	-webkit-opacity: 1; 
+	-webkit-transform:scale(1.5,1.5) rotate(15deg); -Efecto de aumento de tamaño + rotacion.
+	-webkit-box-shadow: #333 5px 5px 5px;
+	z-index: 5; 
+}
+*/
+
+
+
+
+/* CAMBIO DE POSICION DE UN ELEMENTO EN EJE, APLICANDO SU TRANSICION.
+
+-Explicaremos como poder ver el contenido informativo de cada conferencista en la pestaña Inicio. Alli esta la foto de cada uno y puede verse al lado del nombre de este seguido del signo +, donde al tocar deberemos de poder ver.
+*/
+
+div.datos { /*Con esta declaracion indicamos: Que aplique css a todo div con clase "datos". */
+
+	-webkit-transition: 0.5s all ease-in-out;
+	-o-transition: 0.5s all ease-in-out;
+	-moz-transition: 0.5s all ease-in-out;
+	-ms-transition: 0.5s all ease-in-out;
+	-transition: 0.5s all ease-in-out;
+}
+
+
+div.datos:hover { /*En este bloque realizamos el desplazamiento de esa informacion sobre el eje Y y sus compatibilidades. Reemplazamos bottom por transform: translateY para darle una direccion mas justa. */
+
+	/*bottom: 0px;*/
+	-webkit-transform: translateY(-129px);
+	-moz-transform: translateY(-129px);
+	-o-transform: translateY(-129px);
+	-ms-transform: translateY(-129px);
+	transform: translateY(-129px);
+}
+
+/* 
+	- Animaciones CSS: Pertenecen a un modulo de CSS3 y son una forma para animar los valores de las propiedades css sobre el tiempo usando "@keyframes". Ademas podemos añadir otras propiedades que veremos mas adelante.
+
+		Etapas de la animacion: 
+			1º-Creamos la animacion con keyframes.
+			2º-Asignamos la animacion a los elementos que queramos animar.
+
+	Sintaxis 1º: 
+
+				@keyframes nombre 
+
+				{
+					from {valor inicial}
+					to {valor inicial}
+				}
+
+				Ej para Chrome: 	@-webkit-keyframes mover 
+									{
+										from {-webkit-transform:translateX(-100px);}
+										to {-webkit-transform:translateX(600px);}
+									}
+
+
+	Shorthand notation: (Notación corta)
+	-También la tiene y la estructura es:
+				
+					
+		animation: nombre | duración | timing | delay | iteration |direction.
+	
+		Sintáxis para Chrome: -webkit-animation: mover 3s ease 1s 4 alternate-reverse; 
+
+
+	Múltiples animaciones: 
+	
+			Sintáxis:
+
+					@keyframes nombre
+							{
+								from {valor inicial1 valor inicial2 valor inicial3...}
+								to {valor inicial1 valor inicial2 valor inicial3...}
+							}
+
+			Ej para Chrome: 
+
+					@-webkit-keyframes mover
+
+						{
+							from {-webkit-transform:translateX(-100px) rotate (0deg)}
+							to {-webkit-transform:translateX(600px) rotate (180deg)}
+						}
+
+	Sintáxis de animación con PORCENTAJES: Podemos aplicarle n cantidad de porcentajes en donde en cada uno podremos aplicar determinado valor para cada uno de ellos. En el ejemplo estan 0%/50%7100% pero podemos poner valores intermedios 25%/75% o el que definamos 11%/48%/etc, con el fin que logremos poder adecuar la animacion a nuestra conveniencia. 
+
+			Sintáxis:
+
+					@keyframes nombre
+							{
+								0% {valor inicial}
+								50% {valor intermedio}
+								100% {valor final}
+							}		
+			Ej para Chrome: 
+
+				@-webkit-keyframes color 
+					{
+						0% { background-color: rgba(255,0,0,.3);}
+						50% { background-color: rgba(0,255,0,.3);}
+						100% { background-color: rgba(0,0,255,.3);}
+					}
+
+	(*) Aclaraciones: A esta propiedad la explica en base al selector que aplicaremos sobre la clase ".cursosMini". Al cual realizamos cambios de colores de fondo para cada Conferencista.
+							-------------O-------------
+
+
+	Sintaxis de la asignacion 2º:
+
+									animation-name: nombre; 
+				
+				Ej para Chrome:     @-webkit-animation-name: mover;
+		
+	-Aclaracion IMPORTANTE: Explicaremos las propiedades y ejecucion de animaciones en base a un boton del archivo que dice Registrate YA!, con ID botonAnimacion, dentro de la pestaña "Como asistir - FAQ". Podemos asignar mas de una animacion Ej: mover/rotar como usamos en este practico explicativo. Ademas de la asignacion podemos aplicarle + propiedades a la animacion, al igual que en las transisiones para dar mayor detalle y complejidad a ellas. Las explicaremos a continuacion:
+	
+
+		- Duración: La duración de estas no puede ser 0 ya que se ejecutara tan rapido que no se verá, es el valor que viene por defecto asique si o si hay que especificarlo, o ni un valor negativo, al igual que las transiciones.
+
+			Sintaxis para Chrome:  -webkit-animation-duration: 3s;
+		
+		- Aceleración/Desaceleración: Aplica a el espacio entre los distintos keyframes. Posee las mismas opciones de "transition-timing-function".
+
+			Sintaxis para Chrome:  -webkit-animation-timing-function: ease-in-out;
+		
+		- Delay: Aplica una demora al inicio de la animacion. Funciona similar a "transition-delay"
+
+			Sintaxis para Chrome:  -webkit-animation-delay: 3s;
+
+		- Contador de interaciones: Aplica una cantidad de ejecuciones que una animacion se va a ejecutar. Pudiendo esta tener valores numericos, infinitos (infinite) o 1 que es el valor por defecto sino se define.
+
+			Sintaxis para Chrome:  -webkit-animation-iteration-count: infinite;
+
+		- Dirección: Aplica la direccion en la que se va a ejecutar la animacion. Permite ejecutar la animacion en:
+			-Reverse: (Reversa) donde el timing tambien se ejecuta en reversa.
+			-Normal: Valor por defecto, en el sentido que ya hallamos definido dentro de la animación.
+			-Alternate: Anima en ciclos normal y reversa.
+			-Alternate-Reverse: Anima en ciclos reverse y normal.
+
+			Sintaxis para Chrome:  -webkit-animation-direction: alternate;
+
+		(El uso de esta propiedad va muy de la mano con "animation-iteration-count" ya que dependiendo de las veces que establezcamos su repeticion es que podremos ver el efecto de las repeticiones que podamos establecer).
+
+		- Pausado/Reanudado o Ejecución de animaciónes: Permite justamente pausar una animacion inicialmente (paused), para que puede ejecutarse al definir posteriormente (running), cuando se lo llame segun lo establezcamos. En nuestro caso sera cuando se ejecute el :hover, pero estara pausado sino se pasa el click.
+
+		Sintaxis para Chrome: Pausado
+
+					#redes img 
+					{
+						//Otras propiedades de animaciones...
+
+						-webkit-animation-play-state: paused;
+					
+					}
+
+		Sintaxis para Chrome: Reanudar/Ejecutar
+					
+					#redes img:hover
+					{
+						-webkit-animation-play-state: running;
+					}
+
+	-------------------------------------------------------------------------------------
+
+
+
+
+#botonAnimacion {
+	-webkit-animation-name: mover, rotar;
+	-webkit-animation-duration: 3s, 3s;
+	-webkit-animation-timing-function: ease-in-out, ease-in-out;
+	-webkit-animation-delay: 0s, 3s;
+/*	-webkit-animation: mover 3s ease 1s 4 alternate-reverse;
+	-moz-animation: mover 3s ease 1s 4 alternate-reverse;
+	-o-animation: mover 3s ease 1s 4 alternate;
+	-ms-animation: mover 3s ease 1s 4 alternate-reverse;
+	animation: mover 3s ease 1s 4 alternate-reverse;
+}*/
+
+
+@-webkit-keyframes mover {
+	from {-webkit-transform:translateX(-100px);}
+	to {-webkit-transform:translateX(600px);}
+}
+
+@-webkit-keyframes rotar {
+	from {-webkit-transform:rotate(0deg);}
+	to {-webkit-transform:rotate(180deg);}
+}
+/*
+@-moz-keyframes mover {
+	from {-moz-transform:translateX(-100px);}
+	to {-moz-transform:translateX(600px);}
+}
+
+@-o-keyframes mover {
+	from {-o-transform:translateX(100px);}
+	to {-o-transform:translateX(600px);}
+}
+
+@-webkit-keyframes mover {
+	from {-webkit-transform:translateX(-100px);}
+	to {-webkit-transform:translateX(600px);}
+}
+
+@-ms-keyframes mover {
+	from {-ms-transform:translateX(-100px);}
+	to {-ms-transform:translateX(600px);}
+}
+
+@keyframes mover {
+	from {transform:translateX(-100px);}
+	to {transform:translateX(600px);}
+}*/
+
+.cursosMini {
+	-webkit-animation-name: color;
+	-webkit-animation-duration: 5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes color {
+	0% { background-color: rgba(255,0,0,.3);}
+	50% { background-color: rgba(0,255,0,.3);}
+	100% { background-color: rgba(0,0,255,.3);}
+}
+
+#redes img {
+	-webkit-animation-name: escala;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-play-state: paused;
+}
+
+#redes img:hover {
+	-webkit-animation-play-state: running;
+}
+
+@-webkit-keyframes escala {
+	0% {-webkit-transform:scale(1,1);}
+	50% {-webkit-transform:scale(.5,.5);}
+	100% {-webkit-transform:scale(1,1);}
+}
+
+
+
+
+
+
+

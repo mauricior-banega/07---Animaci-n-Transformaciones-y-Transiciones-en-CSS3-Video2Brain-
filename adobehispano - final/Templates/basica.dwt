@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Adobehispano - Evento Adobe Online en Espa&ntilde;ol</title>
+<!-- TemplateEndEditable -->
+<link href="../css/main.css" rel="stylesheet" type="text/css">
+<link href="../css/menuPrincipal.css" rel="stylesheet" type="text/css">
+<link href="../css/animaciones.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<meta name="keywords" content="AdobeHispano, Evento Adobe, Adobe CS6, CS6, CS5, Flash, ActionScript, Dreamweaver, HTML, HTML5, CSS, CSS3, Photoshop, Illustrator InDesign, Publicaciones Digitales, DPS, Flex, AIR, Cursos Adobe, Diplomados Adobe, Capacitaci&oacute;n, Training, Certified Expert, Certified Instructor, ACI, ACE, Consultoria, Bogot&aacute;, Colombia">
+<meta name="robots" content="index, follow">
+<meta name="GOOGLEBOT" content="INDEX, FOLLOW">
+<META name='revisit-after' content='3 day'>
+<META name='robots' content='ALL'>
+<META name='rating' content='general'>
+<meta name="author" content="Xpert - Marlon Ceballos, http://www.marliton.com"/>
+<meta name="robots" content="all">
+
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+
+<!-- TemplateParam name="id cuerpo" type="text" value="" -->
+</head>
+
+<body id="@@(_document['id cuerpo'])@@">
+<header>
+	<img src="../img/banner.gif">
+</header>
+
+<nav>
+    <ul>
+      <li id="mHome"><a href="../index.htm">Inicio</a></li>
+      <li id="mProgra"><a href="../programacion.htm">Programaci&oacute;n</a></li>
+      <li id="mConf"><a href="../conferencistas.htm">Conferencistas</a></li>
+      <li id="mAsis"><a href="../asistir.htm">C&oacute;mo asistir - FAQ</a></li>
+    </ul>
+</nav>
+<!-- TemplateBeginEditable name="contenido" -->
+<div id="contenedor">
+
+</div>
+<!-- TemplateEndEditable -->
+<footer>
+    <div id="pie">
+    	<div id="redes">
+        <a href="http://www.facebook.com/adobecolombia"><img src="../img/redes/facebook.png" width="82" height="82" alt="Facebook"></a>
+        <a href="http://twitter.com/adobexpert"><img src="../img/redes/twitter.png" width="82" height="82" alt="Twitter"></a>
+        <a href="http://www.youtube.com/adobexpert"><img src="../img/redes/youtube.png" width="82" height="82" alt="YouTube"></a>
+        <a href="http://blog.adobexpert.com"><img src="../img/redes/wordpress.png" width="82" height="82" alt="Blog AdobeXpert"></a>
+        <a href="http://blog.adobexpert.com/feed/"><img src="../img/redes/rss.png" width="82" height="82" alt="RSS"></a>
+        </div>
+        <div id="links">
+        	<p> El evento  AdobeHispano es una iniciativa de la <a href="http://www.adobexpert.com">Comunidad AdobeXpert</a> con el apoyo de <a href="http://www.video2brain.com/mx">video2brain</a> y la participaci&oacute;n de diferentes comunidades Adobe de habla hispana.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
