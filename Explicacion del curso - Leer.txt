@@ -1,0 +1,3 @@
+-El contenido explicativo de este curso se encuentra en el achivo CSS "animaciones.css" en la carpeta css del archivo "adobehispano - final". 
+-El archivo "adobehispano - final" contiene todos los documentos que pertenece a la pagina web, donde atravez de el podremos ver la pagina final con la cual ejemplifica cada funcion css que es la que contiene el curso y se usara para modificar viendo asi los cambios de cada propiedad explicado a detalle en el documento "animaciones.css".
+-También sirve para ver la estructura del practico en si mismo con todos los componentes de HTML5 y CSS3 aplicados.
